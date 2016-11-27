@@ -1,0 +1,173 @@
+package com.nlp.targetedsentiment.f.semimarkov;
+
+import java.io.IOException;
+
+import com.nlp.hybridnetworks.NetworkConfig;
+import com.nlp.targetedsentiment.util.TargetSentimentGlobal;
+
+
+public class TargetSentimentLearner {
+	
+	public static String in_path = "data//Twitter_";
+	public static String out_path = "experiments//sentiment//model//semimarkov//Twitter_";
+	public static String feature_file_path = TargetSentimentLearner.in_path + "//feature_files//";
+	public static boolean visual = false;
+	public static String lang = "en";
+	public static boolean weightpush = false;
+	public static boolean word_feature_on = true;
+	public static String subpath = "default";
+
+	public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
+		
+		
+
+		NetworkConfig.TRAIN_MODE_IS_GENERATIVE = false;
+		NetworkConfig.L2_REGULARIZATION_CONSTANT = 0.0005;
+		NetworkConfig.RANDOM_INIT_WEIGHT = false;
+		
+		int num_iter = 1000;
+		
+		int begin_index = 1;
+		int end_index = 1;
+		
+		//#iter, #L2, #begin_index, end_index
+		if (args.length > 0)
+		{
+			num_iter = Integer.parseInt(args[0]);
+			NetworkConfig.L2_REGULARIZATION_CONSTANT = Double.parseDouble(args[1]);
+		}
+		if (args.length > 2)
+		{
+			begin_index = Integer.parseInt(args[2]);
+			end_index = Integer.parseInt(args[3]);
+		}
+		
+		if (args.length > 4)
+		{
+			if (!args[4].trim().equals(""))
+				lang = args[4];
+		}
+		
+		if (args.length > 5)
+		{
+			if (args[5].trim().equals("weightpush"))
+			{
+				weightpush = true;
+			}
+		}
+		
+		if (args.length > 6)
+		{
+			if (args[6].length() > 0)
+				subpath = args[6];
+		}
+		
+		if (args.length > 7)
+		{
+			if (args[7].length() > 0)
+				TargetSentimentCompiler.NEMaxLength = Integer.parseInt(args[7]);
+			
+		}
+		
+		in_path = in_path + lang + "//";
+		out_path = out_path + lang + "//" + subpath + "//";
+		feature_file_path = TargetSentimentLearner.in_path + "//feature_files//";
+		
+		if (lang.equals("es"))
+		{
+			TargetSentimentGlobal.LinguisticFeaturesLibaryName = TargetSentimentGlobal.LinguisticFeaturesLibaryName_es;
+			TargetSentimentGlobal.LinguisticFeaturesLibaryNamePart = TargetSentimentGlobal.LinguisticFeaturesLibaryNamePart_es;
+		}
+		
+		
+		System.out.println("#iter=" + num_iter + " L2=" + NetworkConfig.L2_REGULARIZATION_CONSTANT + " lang=" + lang + " NEMaxLength=" +  TargetSentimentCompiler.NEMaxLength);
+	
+		if (visual)
+		{
+			// Visualize Demo
+			visualize();
+			return;
+		}
+		
+		String train_file;
+		String test_file;
+		String model_file;
+		String result_file;
+		String iter = num_iter + "";
+		String weight_push;
+		
+		for(int i = begin_index; i <= end_index; i++)
+		{
+			System.out.println("Executing Data " + i);
+			train_file = in_path + "train." + i +".coll";
+			test_file = in_path + "test." + i + ".coll";
+			model_file = out_path + "3node." + i + ".model";
+			result_file = out_path + "result." + i + ".out";
+			weight_push = in_path + "weight0.data";
+		
+			TargetSentimentAlgoModel algomodel = new TargetSentimentAlgoModel();
+		
+			if (!weightpush)
+			{
+				NetworkConfig._numThreads  = 20;
+				args = new String[]{train_file, model_file, iter};
+				algomodel.Train(args);
+				algomodel.setDemoMode(true);
+			}
+			args = new String[]{test_file, model_file, result_file, test_file, weight_push};
+			NetworkConfig._numThreads  = 1;
+			algomodel.Evaluate(args);
+		}
+	}
+
+	
+	public static void train()
+	{
+		
+
+	}
+	
+	
+	public static void evaluate() {
+		
+	
+		
+	}
+	
+	public static void visualize()
+	{
+		NetworkConfig.TRAIN_MODE_IS_GENERATIVE = false;
+		NetworkConfig.L2_REGULARIZATION_CONSTANT = 0.5;
+		int num_iter = 2000;
+		
+		int begin_index = 0;
+		int end_index = 0;
+		
+		/* Visualize Demo
+		algomodel.setDemoMode(true);
+		algomodel.Train(args);
+		algomodel.Visualize(new String[]{"2"});
+		return;
+		*/
+		String train_file;
+		String test_file;
+		String model_file;
+		String result_file;
+		String iter = num_iter + "";
+		int i = 1;
+		TargetSentimentAlgoModel algomodel = new TargetSentimentAlgoModel();
+		train_file = in_path + "train." + i +".coll";
+		test_file = in_path + "test." + i + ".coll";
+		model_file = out_path + "3node." + i + ".model";
+		result_file = out_path + "result." + i + ".out";
+		String weight_push = in_path + "weight0.data";
+		
+		/* Visualize Demo*/
+		algomodel.setDemoMode(true);
+		String[] args = new String[]{train_file, model_file, iter};
+		algomodel.Train(args);
+		algomodel.Visualize(new String[]{"0"});
+		
+		
+	}
+}
