@@ -1,0 +1,6 @@
+positive,food#quality,0,5|
+positive,restaurant#general,0,4|positive,restaurant#general,4,7|
+positive,restaurant#general,0,8|
+positive,restaurant#general,0,9|
+positive,food#quality,0,4|positive,service#general,4,9|
+positive,food#quality,0,6|positive,food#quality,6,13|

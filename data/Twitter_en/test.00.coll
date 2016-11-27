@@ -1,0 +1,12 @@
+MVP	O	00101	NONE	001	_	THER_SENT_3:positive	_	_	O
+Stephen	B-PERSON	00101	NONE	001	_	_	positive	_	B-positive
+Curry	I-PERSON	00000	NONE	000	_	_	positive	_	I-positive
+is	O	00111	NONE	001	_	_	_	_	O
+very	O	00101	NONE	001	_	_	_	_	O
+popular	O	01110	NONE	011	SENT_MED:positive	THER_SENT_3:positive	_	_	O
+in	O	00111	NONE	001	_	_	_	_	O
+NBA	B-ORGANIZATION	01110	NONE	011	_	_	neutral	_	B-neutral
+this	O	01111	NONE	011	_	_	_	_	O
+year	O	01111	NONE	011	_	_	_	_	O
+.	O	000	NONE	000	_	_	_	_	O
+

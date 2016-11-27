@@ -55,19 +55,19 @@ public class TargetSentimentGlobal {
 	
 	
 	public static String in_path = "data//Twitter_";
-	public static String out_path = "experiments//sentiment//model//<modelname>//Twitter_";
+	public static String out_path = "experiments//sentiment//<modelname>//Twitter_";
 	public static String feature_file_path = in_path + "//feature_files//";
 	public static boolean visual = false;
 	public static String lang = "en";
 	public static boolean word_feature_on = true;
 	public static String subpath = "default";
-	public static String modelname = "ml_HMM";
+	public static String modelname = "sentimentspan_latent";
 	
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IOException
 	{
 		//NetworkConfig.ENABLE_MAX_MARGINAL = true;
 		NetworkConfig.TRAIN_MODE_IS_GENERATIVE = false;
-		NetworkConfig.L2_REGULARIZATION_CONSTANT = 0.0000;
+		NetworkConfig.L2_REGULARIZATION_CONSTANT = 0.0005;
 		NetworkConfig.RANDOM_INIT_WEIGHT = false;
 		NetworkConfig._numThreads = 20;
 		TargetSentimentGlobal.WITHOUT_HIDDEN_SENTIMENT = false;
@@ -78,8 +78,8 @@ public class TargetSentimentGlobal {
 		
 		int num_iter = 1000;
 		
-		int begin_index = 20;
-		int end_index = 20;
+		int begin_index = 2;
+		int end_index = 10;
 		int pArg = 0;
 		
 		System.out.println(Arrays.toString(args));
