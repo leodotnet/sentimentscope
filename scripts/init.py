@@ -7,7 +7,7 @@ def createDir(dir):
         os.makedirs(dir)
 
 expDir = 'experiments//sentiment//model//'
-models = ['sentimentspan_nonlatent', 'sentimentspan_latent', 'semimarkov_nonlatent', 'semimarkov_latent', 'baseline_collapse', 'baseline_pipeline']
+models = ['sentimentspan_nonlatent', 'sentimentspan_latent', 'semimarkov_nonlatent', 'semimarkov_latent', 'baseline_collapse', 'baseline_pipeline'£¬'baseline_joint']
 langs = ['en', 'es']
 
 createDir('experiments')
