@@ -203,16 +203,16 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 					
 				}
 
-				
+				/*
 				for (int i = 0; i < pos - 3; i++) {
-					/*
+				
 					prefix = "_prev";
 					for (String[] f : mynetwork.horizon_feature[i]) 
 					{
 						addPrefix(featureArr, f, prefix, Sent, NE);
-					}*/
+					}
 
-				}
+				}*/
 
 				for (int i = pos - 1; i >= pos - 3 && i >= 0; i--) {
 					prefix = "_immediate_prev";
@@ -248,15 +248,15 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 				}
 
 			
-
+				/*
 				for (int i = pos + 3 + 1; i < size; i++) {
-					/*
+					
 					prefix = "_next";
 					for (String[] f : mynetwork.horizon_feature[i]) {
 						addPrefix(featureArr, f, prefix, Sent, NE);
-					}*/
+					}
 
-				}
+				}*/
 				
 				
 				//int num_sent = 0;

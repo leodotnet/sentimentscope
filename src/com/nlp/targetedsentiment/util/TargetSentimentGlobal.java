@@ -58,7 +58,7 @@ public class TargetSentimentGlobal {
 	public static String out_path = "experiments//sentiment//model//<modelname>//Twitter_";
 	public static String feature_file_path = in_path + "//feature_files//";
 	public static boolean visual = false;
-	public static String lang = "en";
+	public static String lang = "es";
 	public static boolean word_feature_on = true;
 	public static String subpath = "default";
 	public static String modelname = "sentimentspan_latent";
