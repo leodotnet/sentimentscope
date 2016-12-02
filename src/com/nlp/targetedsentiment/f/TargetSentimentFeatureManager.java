@@ -412,7 +412,8 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 			
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() , "current_word:" + word_parent + "first_letter_upper:" +  Character.isUpperCase(word_parent.charAt(0))));
 			
-			//feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() ,  "current_ther_sentiment_polarity:" + ther_sentiment_polarity[1]));
+			//
+			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() ,  "current_ther_sentiment_polarity:" + ther_sentiment_polarity[1]));
 			
 			
 		} else if (subnode_parent == SubNodeType.e.ordinal() && subnode_child == SubNodeType.e.ordinal()) {
@@ -433,7 +434,8 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Bigram + "-" + "NE_contains" , "", "current_word:" +word_parent + "|||" + "next_word:" + word_child ));
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Bigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() ,"current_word:" + word_parent + "|||" + "next_word:" + word_child ));
 			
-			//feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_sentiment" , "", PolarityType.values()[polar_parent].name() ));
+			//
+			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_sentiment" , "", PolarityType.values()[polar_parent].name() ));
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() , "current_word:" + word_parent + "first_letter_upper:" +  Character.isUpperCase(word_parent.charAt(0))));
 			
 			
@@ -453,7 +455,8 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() , "current_word:" +word_parent + "|||" + "next_word:" + next_feature));
 			
 			
-			//feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_sentiment" , "", PolarityType.values()[polar_parent].name() ));
+			//
+			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_sentiment" , "", PolarityType.values()[polar_parent].name() ));
 			
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() , "current_word:" + word_parent + "first_letter_upper:" +  Character.isUpperCase(word_parent.charAt(0))));
 			
@@ -465,7 +468,8 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 		
 		if (subnode_parent == SubNodeType.B.ordinal() && subnode_child == SubNodeType.B.ordinal())
 		{
-			
+			if (!TargetSentimentGlobal.WITHOUT_HIDDEN_SENTIMENT)
+			{
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name()+"_Before", "current_word:" +word_parent ));
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name(), "current_word:" +word_parent ));
 			//feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name(),   "current_word:" +word_parent + "|||" +  "next_word:" +next_feature ));
@@ -478,12 +482,13 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 			//???
 			if (!ther_sentiment_polarity[1].equals("_"))
 				feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name() ,  "current_ther_sentiment_polarity:" + ther_sentiment_polarity[1]));
-			
+			}
 			
 		}
 		else if (subnode_parent == SubNodeType.A.ordinal() && subnode_child == SubNodeType.A.ordinal())
 		{
-			
+			if (!TargetSentimentGlobal.WITHOUT_HIDDEN_SENTIMENT)
+			{
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name()+"_After","current_word:" + word_parent  ));
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name(),"current_word:" + word_parent  ));
 			//feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name(),   "current_word:" +word_parent + "|||" +  "next_word:" + next_feature ));
@@ -495,7 +500,7 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 			//????
 			if (!ther_sentiment_polarity[1].equals("_"))
 				feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment" , PolarityType.values()[polar_parent].name() ,  "current_ther_sentiment_polarity:" + ther_sentiment_polarity[1]));
-			
+			}
 		} else if (subnode_parent == SubNodeType.A.ordinal() && subnode_child == SubNodeType.B.ordinal())
 		{
 			//feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "O_hidden_sentiment_change" , PolarityType.values()[polar_child].name(), PolarityType.values()[polar_parent].name() ));

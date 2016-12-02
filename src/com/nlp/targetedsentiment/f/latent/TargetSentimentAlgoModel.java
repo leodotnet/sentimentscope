@@ -418,6 +418,36 @@ public class TargetSentimentAlgoModel extends AlgoModel {
 		
 		
 	}
+	
+	
+	//return true if we are going to use the instance
+	/*
+	public boolean useTheIntance(Instance instance)
+	{
+		if (!this.trainingMode)
+			return true;
+		
+		int entityTokenCount = 0;
+		OutputToken[] output = (OutputToken[])instance.getOutput();
+		for(int i = 0; i < output.length; i++)
+		{
+			String label = output[i].getName();
+			if (label.startsWith("B") || label.startsWith("I"))
+			{
+				entityTokenCount++;
+			}
+		}
+		
+		if (entityTokenCount > 0)
+		{
+			return true;
+		}
+		else
+		{
+			System.err.println("Discard the instance due to no entity found!");
+			return false;
+		}
+	}*/
 
 
 

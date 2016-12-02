@@ -58,7 +58,7 @@ public class TargetSentimentGlobal {
 	public static String out_path = "experiments//sentiment//model//<modelname>//Twitter_";
 	public static String feature_file_path = in_path + "//feature_files//";
 	public static boolean visual = false;
-	public static String lang = "es";
+	public static String lang = "en";
 	public static boolean word_feature_on = true;
 	public static String subpath = "default";
 	public static String modelname = "sentimentspan_latent";
@@ -78,8 +78,8 @@ public class TargetSentimentGlobal {
 		
 		int num_iter = 1000;
 		
-		int begin_index = 2;
-		int end_index = 10;
+		int begin_index = 11;
+		int end_index = 11;
 		int pArg = 0;
 		
 		System.out.println(Arrays.toString(args));

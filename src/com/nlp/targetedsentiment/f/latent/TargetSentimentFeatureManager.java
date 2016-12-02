@@ -446,6 +446,7 @@ public class TargetSentimentFeatureManager extends LinearFeatureManager {
 			
 			//
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_sentiment" , "", PolarityType.values()[polar_parent].name() ));
+			
 			feature.add(this._param_g.toFeature(FEATURE_TYPES.Unigram + "-" + "NE_contains" , PolarityType.values()[polar_parent].name() , "current_word:" + word_parent + "first_letter_upper:" +  Character.isUpperCase(word_parent.charAt(0))));
 			
 			

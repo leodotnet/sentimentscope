@@ -527,6 +527,7 @@ public class TargetSentimentCompiler extends LinearNetworkCompiler {
 			//network.addEdge(from,  new long[]{to});
 			
 			System.out.println("No Entity found in this Instance, Discard!");
+			
 			/*
 			for(int pos = 0; pos < size; pos++)
 			{
