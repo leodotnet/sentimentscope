@@ -35,7 +35,7 @@ logfile=$task".log"
 echo "more "$logfile" | grep Iteration | wc -l" > check.sh
 chmod +x check.sh
 
-java -Xmx16g -jar sentimentspan.jar semimarkov_latent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen ENABLE_WORD_EMBEDDING > $logfile 2>&1
+java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal semimarkov_latent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen ENABLE_WORD_EMBEDDING > $logfile 2>&1
 
 python scripts/sentiment.py $beginIndex $endIndex semimarkov_latent $lang $task N
 

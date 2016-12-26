@@ -35,11 +35,9 @@ logfile=$task".log"
 
 echo "more "$logfile" | grep Iteration | wc -l" > check.sh
 chmod +x check.sh
-CLASSPATH=/usr/local/share/java/zmq.jar:lib/json-20140107.jar:lib/stanford-corenlp-3.5.2.jar:bin:.
-LD_LIBRARY_PATH=/usr/local/lib
 
 
-java -Xmx32g -Djava.library.path=$LD_LIBRARY_PATH -cp $CLASSPATH com.nlp.targetedsentiment.util.TargetSentimentGlobal $modelname 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
+java -Xmx16g -cp bin com.nlp.targetedsentiment.util.TargetSentimentGlobal $modelname 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
 
 #python scripts/sentiment.py $beginIndex $endIndex sentimentspan_nonlatent $lang $task N
 

@@ -35,7 +35,7 @@ echo "java -cp bin -Xmx16g com.nlp.targetedsentiment.f.latent.TargetSentimentLea
 echo "more "$logfile" | grep Iteration | wc -l" > check.sh
 chmod +x check.sh
 
-java -Xmx16g -jar sentimentspan.jar sentimentspan_latent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen USE_POS_TAG> $logfile 2>&1
+java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal sentimentspan_latent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen USE_POS_TAG> $logfile 2>&1
 
 python scripts/sentiment.py $beginIndex $endIndex sentimentspan_latent $lang $task N
 

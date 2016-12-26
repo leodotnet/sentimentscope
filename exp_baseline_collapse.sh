@@ -35,7 +35,7 @@ echo "java -cp bin -Xmx16g com.nlp.targetedsentiment.f.latent.TargetSentimentLea
 echo "more "$logfile" | grep Iteration | wc -l" > check.sh
 chmod +x check.sh
 
-java -Xmx16g -jar sentimentspan.jar baseline_collapse 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
+java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal baseline_collapse 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
 
 python scripts/sentiment.py $beginIndex $endIndex baseline_collapse $lang $task N
 date >> email_succ.txt

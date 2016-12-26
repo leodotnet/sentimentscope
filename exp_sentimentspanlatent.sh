@@ -30,14 +30,14 @@ mkdir experiments/sentiment/model/sentimentspan_latent/Twitter_$lang/$task
 
 logfile=$task".log"
 
-echo "java -cp bin -Xmx16g com.nlp.targetedsentiment.f.latent.TargetSentimentLearner 2000 0.0005 "$beginIndex" "$endIndex" "$lang" weightnotpush "$task" > "$logfile
+echo "java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal 2000 0.0005 "$beginIndex" "$endIndex" "$lang" weightnotpush "$task" > "$logfile
 
 echo "more "$logfile" | grep Iteration | wc -l" > check.sh
 chmod +x check.sh
 
-java -Xmx16g -jar sentimentspan.jar sentimentspan_latent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
+java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal sentimentspan_latent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
 
 python scripts/sentiment.py $beginIndex $endIndex sentimentspan_latent $lang $task N
 
-date >> email_succ.txt
+#date >> email_succ.txt
 #sendmail lihao.leolee@gmail.com < email_succ.txt
