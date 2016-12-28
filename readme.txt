@@ -1,4 +1,5 @@
-The guide to run Sentiment Scopes experiments on Linux and Mac.
+The guide to run Sentiment Scopes experiments on Linux and Mac. 
+Alternatively, you need to use eclipse to import this project.
 
 1. Run "make" to compile the source code (Make sure you have installed Ant)
 2. Run "make init" to initialize files and folders
