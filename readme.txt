@@ -1,26 +1,27 @@
 The guide to run Sentiment Span experiments
 
-1. Run "make init" to initialize files and folders
-2. Run "make <experiment>" for experiments
+1. Run "make" to compile the source code
+2. Run "make init" to initialize files and folders
+3. Run "make <experiment>" for experiments
 
 <experiment> includes
-sentimentspan_latent_english
-sentimentspan_latent_nohiddeninfo_english
-sentimentspan_latent_withpostag_english
-sentimentspan_latent_wordembedding_english
-sentimentspan_nonlatent_english
-sentimentspan_semimarkov_nonlatent_english
-sentimentspan_semimarkov_latent_english
+sentimentscope_latent_english
+sentimentscope_latent_nohiddeninfo_english
+sentimentscope_latent_withpostag_english
+sentimentscope_latent_wordembedding_english
+sentimentscope_nonlatent_english
+sentimentscope_semimarkov_nonlatent_english
+sentimentscope_semimarkov_latent_english
 baseline_collapse_english
 baseline_pipeline_english
 
-sentimentspan_latent_spanish
-sentimentspan_latent_nohiddeninfo_spanish
-sentimentspan_latent_withpostag_spanish
-sentimentspan_latent_wordembedding_spanish
-sentimentspan_nonlatent_spanish
-sentimentspan_semimarkov_nonlatent_spanish
-sentimentspan_semimarkov_latent_spanish
+sentimentscope_latent_spanish
+sentimentscope_latent_nohiddeninfo_spanish
+sentimentscope_latent_withpostag_spanish
+sentimentscope_latent_wordembedding_spanish
+sentimentscope_nonlatent_spanish
+sentimentscope_semimarkov_nonlatent_spanish
+sentimentscope_semimarkov_latent_spanish
 baseline_collapse_spanish
 baseline_pipeline_spanish
 
