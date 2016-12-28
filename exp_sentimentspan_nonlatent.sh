@@ -32,12 +32,12 @@ mkdir experiments/sentiment/model/sentimentspan_nonlatent/Twitter_$lang/$task
 logfile=$task".log"
 
 
-echo "more "$logfile" | grep Iteration | wc -l" > check.sh
+echo "tail -f "$logfile > check.sh
 chmod +x check.sh
 
 java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal sentimentspan_nonlatent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
 
-python scripts/sentiment.py $beginIndex $endIndex sentimentspan_nonlatent $lang $task N
+python scripts/sentiment.py $beginIndex $endIndex sentimentspan_nonlatent $lang $task N >> $logfile
 
 date >> email_succ.txt
 #sendmail lihao.leolee@gmail.com < email_succ.txt

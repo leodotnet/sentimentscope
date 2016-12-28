@@ -28,5 +28,3 @@ baseline_pipeline_spanish
 After executing one command, the program will create a unique folder for storing experiment results. You can type "make check" to show the folder. The experiment results store in experiments/sentiment/model/<modelname>/<lang>.
 
 Notice that pipeline will involve two steps of training and evaluation automatically.
-
-3. Run "make eval" to evaluate the results and obtain the statistics for current experiment. In addition, statistics will be stored in the folder mentioned above.

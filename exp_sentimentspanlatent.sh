@@ -32,12 +32,12 @@ logfile=$task".log"
 
 echo "java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal 2000 0.0005 "$beginIndex" "$endIndex" "$lang" weightnotpush "$task" > "$logfile
 
-echo "more "$logfile" | grep Iteration | wc -l" > check.sh
+echo "tail -f "$logfile > check.sh
 chmod +x check.sh
 
 java -cp bin -Xmx16g com.nlp.targetedsentiment.util.TargetSentimentGlobal sentimentspan_latent 1000 $l2 $beginIndex $endIndex $lang weightnotpush $task $NElen > $logfile 2>&1
 
-python scripts/sentiment.py $beginIndex $endIndex sentimentspan_latent $lang $task N
+python scripts/sentiment.py $beginIndex $endIndex sentimentspan_latent $lang $task N >> $logfile
 
 #date >> email_succ.txt
 #sendmail lihao.leolee@gmail.com < email_succ.txt
