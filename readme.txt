@@ -24,7 +24,7 @@ sentimentspan_semimarkov_latent_spanish
 baseline_collapse_spanish
 baseline_pipeline_spanish
 
-After executing a command, the program will create a unique folder for storing experiment results. You can type "make check" to show the folder. The experiment results store in experiments/sentiment/model/<modelname>/<lang>.
+After executing one command, the program will create a unique folder for storing experiment results. You can type "make check" to show the folder. The experiment results store in experiments/sentiment/model/<modelname>/<lang>.
 
 Notice that pipeline will involve two steps of training and evaluation automatically.
 
