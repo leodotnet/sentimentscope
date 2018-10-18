@@ -52,7 +52,10 @@ baseline_collapse_spanish
 baseline_pipeline_spanish
 ```
 
-After executing one command, the program will create a unique folder for storing experiment results. You can type "make check" to see the progress logs and evaluation results in the end. The experiment results store in experiments/sentiment/model/<modelname>/<lang>.
+After executing one command, the program will create a unique folder for storing experiment results. You can type "make check" to see the progress logs and evaluation results in the end. The experiment results store in the following path.
+```
+experiments/sentiment/model/<modelname>/<lang>.
+```
 
 Notice that pipeline will involve two steps of training and evaluation automatically.
 
