@@ -27,7 +27,7 @@ make init
 make <experiment>
 ```
 
-Note that the <experiment> refers to anyone of the following experiments
+Note that the "<experiment>" refers to anyone of the following experiments
 
 
 ```
