@@ -27,7 +27,7 @@ make init
 make EXPERIMENT
 ```
 
-Note that the EXPERIMENT refers to anyone of the following experiments
+Note that the EXPERIMENT refers to anyone of the following experiments mentioned in the paper.
 
 
 ```
@@ -51,6 +51,11 @@ sentimentscope_semimarkov_latent_spanish
 baseline_collapse_spanish
 baseline_pipeline_spanish
 ```
+
+After executing one command, the program will create a unique folder for storing experiment results. You can type "make check" to see the progress logs and evaluation results in the end. The experiment results store in experiments/sentiment/model/<modelname>/<lang>.
+
+Notice that pipeline will involve two steps of training and evaluation automatically.
+
 
 ## SourceCode
 
