@@ -24,10 +24,10 @@ make init
 
 3. Run "make <experiment>" for experiments mentioned in the paper.
 ```sh
-make <experiment>
+make EXPERIMENT
 ```
 
-Note that the "<experiment>" refers to anyone of the following experiments
+Note that the EXPERIMENT refers to anyone of the following experiments
 
 
 ```
